@@ -4,7 +4,7 @@ This HTML file contains a form input field that restricts user input to only acc
 
 ### Instructions for Use:
 
-1. Open the `restricted-number-input.html` file in a web browser.
+1. Open the `index.html` file in a web browser.
 2. Try typing various characters into the input field; only numbers, decimal points, and the negative sign are allowed.
 3. The input field prevents entry of any other characters.
 
