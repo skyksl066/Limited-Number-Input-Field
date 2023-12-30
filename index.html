@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
   <title>Restricted Number Input</title>
 </head>
 <body>
-    <input type="number" placeholder="¥u¯à¿é¤J¼Æ¦r">
+    <input type="number" placeholder="åªèƒ½è¼¸å…¥æ•¸å­—">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
         $(function () {
             $(document).on('keydown', 'input[type="number"]', function (e) {
                 let allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '-', 'Backspace', 'ArrowLeft', 'ArrowRight', 'Delete', 'Tab'];
 
-                // ÀË¬d«ö¤Uªº«öÁä¬O§_¦b¤¹³\ªº¦Cªí¤¤¡A¦pªG¤£¦b¦Cªí¤¤¥B¤£¬O¥\¯àÁä¡A«hªı¤î¿é¤J
+                // æª¢æŸ¥æŒ‰ä¸‹çš„æŒ‰éµæ˜¯å¦åœ¨å…è¨±çš„åˆ—è¡¨ä¸­ï¼Œå¦‚æœä¸åœ¨åˆ—è¡¨ä¸­ä¸”ä¸æ˜¯åŠŸèƒ½éµï¼Œå‰‡é˜»æ­¢è¼¸å…¥
                 if (allowedKeys.indexOf(e.key) === -1 && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
                     e.preventDefault();
                 }
@@ -20,11 +20,11 @@
             $(document).on('paste', 'input[type="number"]', function (e) {
                 let $this = $(this);
                 setTimeout(function () {
-                    // ¨ú±o¿é¤J®Ø¤¤ªº­È
+                    // å–å¾—è¼¸å…¥æ¡†ä¸­çš„å€¼
                     let inputValue = $this.val();
-                    // ²¾°£¤£¬O0-9©M.¥H¤Î-¥H¥~ªº¦r²Å¡A¦ı«O¯d­ì©l­È¤¤ªº¼Æ¦r¡B¤p¼ÆÂI©M­t¸¹
+                    // ç§»é™¤ä¸æ˜¯0-9å’Œ.ä»¥åŠ-ä»¥å¤–çš„å­—ç¬¦ï¼Œä½†ä¿ç•™åŸå§‹å€¼ä¸­çš„æ•¸å­—ã€å°æ•¸é»å’Œè² è™Ÿ
                     const sanitizedValue = inputValue.replace(/[^0-9.\-]/g, '');
-                    // §ó·s¿é¤J®Øªº­È
+                    // æ›´æ–°è¼¸å…¥æ¡†çš„å€¼
                     $this.val(sanitizedValue);
                 }, 0);
             });
