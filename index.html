@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+  <meta charset="UTF-8">
   <title>Restricted Number Input</title>
 </head>
 <body>
-    <input type="number" placeholder="只能輸入數字">
+    <input type="number" placeholder="?�能輸入?��?">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
         $(function () {
             $(document).on('keydown', 'input[type="number"]', function (e) {
                 let allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '-', 'Backspace', 'ArrowLeft', 'ArrowRight', 'Delete', 'Tab'];
 
-                // 檢查按下的按鍵是否在允許的列表中，如果不在列表中且不是功能鍵，則阻止輸入
+                // 檢查?��??��??�是?�在?�許?��?表中，�??��??��?表中且�??��??�鍵，�??�止輸入
                 if (allowedKeys.indexOf(e.key) === -1 && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
                     e.preventDefault();
                 }
@@ -20,11 +21,11 @@
             $(document).on('paste', 'input[type="number"]', function (e) {
                 let $this = $(this);
                 setTimeout(function () {
-                    // 取得輸入框中的值
+                    // ?��?輸入框中?��?
                     let inputValue = $this.val();
-                    // 移除不是0-9和.以及-以外的字符，但保留原始值中的數字、小數點和負號
+                    // 移除不是0-9??以�?-以�??��?符�?但�??��?始值中?�數字、�??��??��???
                     const sanitizedValue = inputValue.replace(/[^0-9.\-]/g, '');
-                    // 更新輸入框的值
+                    // ?�新輸入框�???
                     $this.val(sanitizedValue);
                 }, 0);
             });
